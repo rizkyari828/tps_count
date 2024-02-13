@@ -188,9 +188,9 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Pemenang Kursi</th>
-                  <!-- <th>Saint League</th> -->
                   <th>Nama Caleg</th>
+                  <!-- <th>Saint League</th> -->
+                  <th>Pemenang Kursi</th>
                 </tr>
                 </thead>
                 <tbody>
