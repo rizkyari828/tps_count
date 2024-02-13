@@ -26,8 +26,7 @@
                                         <input type="submit" name="type" class="btn btn-primary" value="Export Kota" />&nbsp;&nbsp;
                                         <input type="submit" name="type" class="btn btn-warning" value="Export Kelurahan" />&nbsp;&nbsp;
                                         <input type="submit" name="type" class="btn btn-info" value="Export Kabupaten/Kota" />&nbsp;&nbsp;
-                                        <input type="submit" name="type" class="btn btn-danger" value="Export Jateng" />&nbsp;&nbsp;
-                                        <input type="submit" name="type" class="btn btn-default" value="Export Total" />
+                                        <input type="submit" name="type" class="btn btn-danger" value="Export Jateng" />
                                     </div>
                                 </div>
                             </div>
