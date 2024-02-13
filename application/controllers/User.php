@@ -36,7 +36,14 @@ class User extends BaseController
 		
 		$data['searchBody'] = 'Yes';
         $data['caleg'] = $this->suara_model->allPartaiListing();
-        $data['allCaleg'] = $this->suara_model->dashboardCalegListing();
+        $data['allCaleg'] = $this->suara_model->dashboardCalegListing(2);
+        $data['allCalegNot'] = $this->suara_model->dashboardCalegListing(1);
+        // echo '<pre>';
+        // print_r($data['allCaleg']);
+        // echo '</pre>'; die;
+        $data['m_caleg'] = $data['caleg'];
+        $data['data_max_all_caleg'] = array_shift($data['allCaleg'])->total;
+        $data['allCalegIn'] = $this->suara_model->dashboardCalegListing(0);
         $data['perolehan_kursi'] = $this->suara_model->perolehanKursiListing();
         $data['saint'] = $this->suara_model->dashboardSaintLeague();
         

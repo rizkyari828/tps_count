@@ -13,7 +13,7 @@
           <div class="box box-danger"  style="padding: 20px;">
             <div class="card">
               <div class="card-body">
-              <?php foreach ($caleg as $key => $value) { ?>
+              <?php foreach ($caleg as $key => $value) {?>
                 <!-- /.card-header -->
                   <div class="row" style="padding: 5px;">
                     <div class="col-md-1">
@@ -36,40 +36,49 @@
             
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Partai</th>
-                  <th>Caleg</th>
-                  <th>Total Suara</th>
-                </tr>
-                </thead>
-                <tbody>
-				        <?php
-                    if(!empty($allCaleg))
-                    { $i=1;
-                        foreach($allCaleg as $record)
-                        {
-                    ?>
-					
-                <tr>
-                  <td><?php echo $i;?>.</td>
-                  <td><?php echo $record->partai; ?></td>
-                  <td><?php echo $record->name; ?></td>
-                  <td><?php echo $record->total; ?></td>
-                </tr>
-				        <?php
-                        $i++; }
-                    }
-                    ?>
-                
-                </tfoot>
-              </table>
+            <?php foreach ($allCalegNot as $key => $value2) { ?>
+                <!-- /.card-header -->
+                  <div class="row" style="padding: 5px;">
+                    <div class="col-md-1">
+                      <img style="border-radius: 50%;" height="35" width="35" src="<?php echo base_url() ?>assets/partai/<?= $value2->image_partai ?>" alt="Page Not Found Image" />
+                    </div>
+                    <div class="col-md-10">
+                      <label><?= $value2->name;?></label>
+                      <div class="progress" >
+                      <?php $countVar = 0;?>
+                      <?php foreach ($m_caleg as $key => $value3) {
+                        if($value2->partai == $value3->partai){
+                          $countVar = $value3->total;
+                        }
+                      } ?>
+                      <div class="progress-bar-danger" role="progressbar" style="width: <?php echo ($value2->total*100/$countVar)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?php echo $value2->total; ?></div></div>
+                      </div>
+                      <!-- <h3><?php echo $value2->total; ?>/<?= $countVar ?></h3> -->
+                    </div>
+                  </div>
+                <?php }?>
+            <?php foreach ($allCalegIn as $key => $value1) { ?>
+                <!-- /.card-header -->
+                  <div class="row" style="padding: 5px;">
+                    <div class="col-md-1">
+                      <img style="border-radius: 50%;" height="35" width="35" src="<?php echo base_url() ?>assets/partai/<?= $value1->image_partai ?>" alt="Page Not Found Image" />
+                    </div>
+                    <div class="col-md-10">
+                      <label><?= $value1->name;?></label>
+                      <?php $countVar = 0;?>
+                      <?php foreach ($m_caleg as $key => $value3) {
+                        if($value1->partai == $value3->partai){
+                          $countVar = $value3->total;
+                        }
+                      } ?>
+                      <div class="progress-bar-danger" role="progressbar" style="width: <?php echo ($value1->total*100/$countVar)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?php echo $value1->total; ?></div></div>
+                      </div>
+                    </div>
+              
+                <?php }?>
+                </div>
+              </div>
             </div>
-            <!-- /.card-body -->
-          </div>
-          </div>
 
           <div class="box box-danger"  style="padding: 20px;">
 				<div class="card">
