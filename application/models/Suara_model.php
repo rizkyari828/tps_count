@@ -432,4 +432,14 @@ class Suara_model extends CI_Model
         die;
         return $result;
     }
+
+    function getStLeague()
+    {
+        $this->db->select('*');
+        $this->db->from('hitung_st_league');
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
 }

@@ -125,23 +125,23 @@
                 <tbody>
 				
 				      <?php
-                    if(!empty($perolehan_kursi))
+                    if(!empty($getStLeague))
                     { $i=1;
-                        foreach($perolehan_kursi as $record)
+                        foreach($getStLeague as $record)
                         {
                     ?>
 					
                 <tr>
                   <td><?php echo $i;?>.</td>
                   <td><?php echo $record->partai; ?></td>
-                  <td><?php echo $record->total; ?></td>
-                  <td><?php echo $record->total; ?></td>
-                  <td><?php echo round($record->total/3); ?></td>
-                  <td><?php echo round($record->total/3); ?></td>
-                  <td><?php echo round($record->total/3); ?></td>
-                  <td><?php echo round($record->total/3); ?></td>
-                  <td><?php echo round($record->total/3); ?></td>
-                  <td><?php echo round($record->total/3); ?></td>
+                  <td><?php echo $record->est; ?></td>
+                  <td><?php echo $record->kursi_1; ?></td>
+                  <td><?php echo $record->kursi_2; ?></td>
+                  <td><?php echo $record->kursi_3; ?></td>
+                  <td><?php echo $record->kursi_4; ?></td>
+                  <td><?php echo $record->kursi_5; ?></td>
+                  <td><?php echo $record->kursi_6; ?></td>
+                  <td><?php echo $record->kursi_7; ?></td>
                 </tr>
 				<?php
                         $i++; }
