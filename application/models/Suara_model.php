@@ -459,7 +459,7 @@ class Suara_model extends CI_Model
         $this->db->from('status_tps');
         $query = $this->db->get();
         
-        $result = $query->result();
+        $result = $query->row();
         return $result;
     }
 
