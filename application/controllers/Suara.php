@@ -66,7 +66,7 @@ class Suara extends BaseController
 			$data = "";
             $this->global['tps'] = $this->suara_model->selectTps($tpsId);
             $this->global['caleg'] = $this->suara_model->calegListing($tpsId, $this->global['tps']->status_submit);
-            $this->global['partai'] = $this->suara_model->partaiListing($tpsId, $this->global['tps']->status_submit);
+            // $this->global['partai'] = $this->suara_model->partaiListing($tpsId, $this->global['tps']->status_submit);
             $this->global['result_suara'] = $this->suara_model->resultSuara($tpsId);
             if($this->vendorId == 1){
                 $this->global['status_submit'] = 0;

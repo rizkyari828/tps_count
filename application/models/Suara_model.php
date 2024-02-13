@@ -21,11 +21,11 @@ class Suara_model extends CI_Model
 
     function calegListing($id_tps, $status = 0)
     {
-        $partai = ['Partai Kebangkitan Bangsa', 'Partai Demokrasi Indonesia Perjuangan', 'Partai Golongan Karya'];
+        // $partai = ['Partai Kebangkitan Bangsa', 'Partai Demokrasi Indonesia Perjuangan', 'Partai Golongan Karya'];
         if($status == 0){
         $this->db->select('c.*');
         $this->db->from('tbl_caleg as c');
-        $this->db->where_in('partai', $partai);
+        // $this->db->where_in('partai', $partai);
         $this->db->order_by('c.no_urut_partai', 'asc');
         $this->db->order_by('c.no_urut', 'asc');
         
@@ -35,7 +35,7 @@ class Suara_model extends CI_Model
         $this->db->select('c.*, u.total_suara, u.id_tps, u.id as id_input');
         $this->db->from('tbl_caleg as c');
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
-        $this->db->where_in('c.partai', $partai);
+        // $this->db->where_in('c.partai', $partai);
         $this->db->where('u.id_tps', $id_tps);
         $this->db->order_by('c.no_urut_partai', 'asc');
         $this->db->order_by('c.no_urut', 'asc');
