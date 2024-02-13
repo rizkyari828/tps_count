@@ -442,4 +442,14 @@ class Suara_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+
+    function getPemenangKursi()
+    {
+        $this->db->select('*');
+        $this->db->from('pemenang_kursi');
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
 }

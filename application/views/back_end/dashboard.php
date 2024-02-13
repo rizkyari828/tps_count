@@ -165,24 +165,24 @@
                 <tr>
                   <th>No</th>
                   <th>Pemenang Kursi</th>
-                  <th>Saint League</th>
+                  <!-- <th>Saint League</th> -->
                   <th>Nama Caleg</th>
                 </tr>
                 </thead>
                 <tbody>
 				
 				 <?php 
-                    if(!empty($saint))
+                    if(!empty($pemenangKursi))
                     { $i=1;
-                        foreach($saint as $record)
+                        foreach($pemenangKursi as $record)
                         {
                     ?>
 					
                 <tr>
                   <td><?php echo $i;?>.</td>
-                  <td><?php echo $record->partai; ?></td>
-                  <td><?php echo $record->total; ?></td>
-                  <td><?php echo $record->name; ?></td>
+                  <td><?php echo $record->nama_caleg; ?></td>
+                  <!-- <td><?php echo $record->total; ?></td> -->
+                  <td><?php echo $record->pemenang_kursi; ?></td>
                 </tr>
 				<?php
                         $i++; }
