@@ -466,7 +466,7 @@ class Suara_model extends CI_Model
     function reportKota()
     {
         $this->db->select('*');
-        $this->db->from('total_suara_kota');
+        $this->db->from('report_kota');
         $query = $this->db->get();
         
         $result = $query->result();
@@ -476,7 +476,7 @@ class Suara_model extends CI_Model
     function reportKecamatan()
     {
         $this->db->select('*');
-        $this->db->from('total_suara_kecamatan');
+        $this->db->from('report_kecamatan');
         $query = $this->db->get();
         
         $result = $query->result();
@@ -486,7 +486,7 @@ class Suara_model extends CI_Model
     function reportKelurahan()
     {
         $this->db->select('*');
-        $this->db->from('total_suara_kelurahan');
+        $this->db->from('report_kelurahan');
         $query = $this->db->get();
         
         $result = $query->result();
@@ -496,7 +496,7 @@ class Suara_model extends CI_Model
     function reportJateng()
     {
         $this->db->select('*');
-        $this->db->from('total_suara_jateng_X');
+        $this->db->from('report_jateng_X');
         $query = $this->db->get();
         
         $result = $query->result();
