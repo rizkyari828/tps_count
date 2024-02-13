@@ -47,8 +47,8 @@ class User extends BaseController
         // echo '</pre>'; die;
         $data['getStLeague'] = $this->suara_model->getStLeague();
         $data['pemenangKursi'] = $this->suara_model->getPemenangKursi();
-        $data['getStLeague'] = null;
-        $data['pemenangKursi'] = null;
+        // $data['getStLeague'] = null;
+        // $data['pemenangKursi'] = null;
         $data['m_caleg'] = $data['caleg'];
         $data['data_max_all_caleg'] = array_shift($data['allCaleg'])->total;
         $data['allCalegIn'] = $this->suara_model->dashboardCalegListing(0);
