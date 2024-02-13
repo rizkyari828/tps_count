@@ -27,9 +27,9 @@ class User extends BaseController
      */
     public function index()
     {
-        if($this->vendorId == null)
+        if($this->isAdmin() == TRUE)
         {
-            redirect('loginMe');
+            redirect('selectTps');
         }
 
         $this->global['pageTitle'] = 'Quick Count Jateng : Dashboard';
