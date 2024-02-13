@@ -9,24 +9,29 @@
     </section>
     
     <section class="content">
-        <div class="row">
-        <?php foreach ($caleg as $key => $value) { ?>
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="box box-primary small-box" style="height:150px">
-                <div class="inner">
-                  <h3 style="color: black;"><?= $value->total ?></h3>
-                  <div style="width: 150px;"><h6 style="color: black;"><?= $value->partai ?></h6></div>
-                </div>
-                <div class="icon">
-                  <img height="50" width="50" src="<?php echo base_url() ?>assets/partai/<?= $value->image_partai ?>" alt="Page Not Found Image" />
+     
+          <div class="box box-danger"  style="padding: 20px;">
+            <div class="card">
+              <div class="card-body">
+              <?php foreach ($caleg as $key => $value) { ?>
+                <!-- /.card-header -->
+                  <div class="row" style="padding: 5px;">
+                    <div class="col-md-1">
+                      <img style="border-radius: 50%;" height="35" width="35" src="<?php echo base_url() ?>assets/partai/<?= $value->image_partai ?>" alt="Page Not Found Image" />
+                    </div>
+                    <div class="col-md-10" style="padding-top: 5px;">
+                      <div class="progress">
+                        <div class="progress-bar-danger" role="progressbar" style="width: <?php echo ($value->total*array_shift($caleg)->total/100)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?= $value->total ?></div></div>
+                      </div>
+                    </div>
+                  </div>
+                <?php }?>
                 </div>
               </div>
-            </div><!-- ./col -->
-          <?php }?>
-          </div>
+            </div>
+        
 
-          <div class="box box-primary"  style="padding: 20px;">
+          <div class="box box-danger"  style="padding: 20px;">
 				<div class="card">
             
             <!-- /.card-header -->
@@ -66,7 +71,7 @@
           </div>
           </div>
 
-          <div class="box box-primary"  style="padding: 20px;">
+          <div class="box box-danger"  style="padding: 20px;">
 				<div class="card">
             
             <!-- /.card-header -->
@@ -127,7 +132,7 @@
           </div>
           </div>
 
-          <div class="box box-primary"  style="padding: 20px;">
+          <div class="box box-danger"  style="padding: 20px;">
 				<div class="card">
           
             <!-- /.card-header -->
