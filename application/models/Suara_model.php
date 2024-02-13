@@ -26,8 +26,9 @@ class Suara_model extends CI_Model
         $this->db->select('c.*');
         $this->db->from('tbl_caleg as c');
         $this->db->where_in('partai', $partai);
-        $this->db->order_by('c.no_urut', 'asc');
         $this->db->order_by('c.no_urut_partai', 'asc');
+        $this->db->order_by('c.no_urut', 'asc');
+        
         $query = $this->db->get();
 
         }else{
@@ -36,8 +37,9 @@ class Suara_model extends CI_Model
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         $this->db->where_in('c.partai', $partai);
         $this->db->where('u.id_tps', $id_tps);
-        $this->db->order_by('c.no_urut', 'asc');
         $this->db->order_by('c.no_urut_partai', 'asc');
+        $this->db->order_by('c.no_urut', 'asc');
+       
         $query = $this->db->get();
         }
         $result = $query->result();
@@ -51,8 +53,9 @@ class Suara_model extends CI_Model
         $this->db->select('c.*');
         $this->db->from('tbl_caleg as c');
         $this->db->where_not_in('partai', $partai);
-        $this->db->order_by('c.no_urut', 'asc');
         $this->db->order_by('c.no_urut_partai', 'asc');
+        $this->db->order_by('c.no_urut', 'asc');
+        
         $query = $this->db->get();
 
         }else{
@@ -61,8 +64,9 @@ class Suara_model extends CI_Model
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         $this->db->where_not_in('partai', $partai);
         $this->db->where('u.id_tps', $id_tps);
-        $this->db->order_by('c.no_urut', 'asc');
         $this->db->order_by('c.no_urut_partai', 'asc');
+        $this->db->order_by('c.no_urut', 'asc');
+        
         $query = $this->db->get();
         }
         $result = $query->result();
@@ -96,8 +100,8 @@ class Suara_model extends CI_Model
         if($status == 2){
             $this->db->order_by('total', 'desc');
         }else{
-            $this->db->order_by('c.no_urut', 'asc');
             $this->db->order_by('c.no_urut_partai', 'asc');
+            $this->db->order_by('c.no_urut', 'asc');
         }
 
         $this->db->group_by('u.id_caleg');
