@@ -31,9 +31,39 @@
     </section>
     
     <section class="content">
-    <div id="clock">
-      <h1 id="date-time"></h1>
-    </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="info-box">
+          <span class="info-box-icon bg-red"><i class="fa fa-clock-o"></i></span>
+          <div class="info-box-content">
+          <div id="clock">
+            <h1 id="date-time"></h1>
+          </div>
+          </div>
+          </div>
+          <!-- <div id="clock">
+            <h1 id="date-time"></h1>
+          </div> -->
+        </div>
+        <div class="col-md-6">
+          <div class="info-box">
+          <span class="info-box-icon bg-red"><i class="fa fa-envelope-o"></i></span>
+          <div class="info-box-content">
+          <div class="row">
+          <div class="col-md-3">
+          <h4>TPS Masuk</h4>
+          <h3 class="text-bold"><?= $statusTps->tps_masuk; ?></h3>
+          </div>
+          <div class="col-md-4">
+          <h4>Total</h4>
+          <h3 class="text-bold"><?= $statusTps->total; ?></h3>
+          </div>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    
           <div class="box box-danger"  style="padding: 20px;">
             <div class="card">
               <div class="card-body">

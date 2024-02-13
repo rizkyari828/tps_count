@@ -42,7 +42,6 @@ class Suara extends BaseController
         }
         else
         {
-			
 			$this->global['searchBody'] = 'Yes';
 			
             $data['vehicleRecords'] = $this->suara_model->vehicleListing();

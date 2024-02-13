@@ -52,12 +52,16 @@ class PrintExcel extends BaseController
     public function print(){
         $type = $this->security->xss_clean($this->input->post('type'));
 
-        if($type == 'Export using Kota'){
+        if($type == 'Export Kota'){
             $this->kota();
-        }else if($type == 'Export using Kelurahan'){
+        }else if($type == 'Export Kelurahan'){
             $this->kelurahan();
-        }else if($type == 'Export using Total'){
+        }else if($type == 'Export Kabupaten/Kota'){
+            $this->kota();
+        }else if($type == 'Export Total'){
             $this->total();
+        }else if($type == 'Export Jateng'){
+            $this->jateng();
         }else{
             redirect('reportListing');
         }
@@ -67,21 +71,71 @@ class PrintExcel extends BaseController
         $objPHPExcel = new PHPExcel();
         $objPHPExcel->setActiveSheetIndex(0);
         // set Header
-        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Partai');
-        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Caleg');
-        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Kabupaten');
-        $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'TPS');
-        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Total Suara');
+        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'No');
+        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Nama Caleg');
+        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Partai');
+        $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'Kelurahan');
+        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Kecamatan');
+        $objPHPExcel->getActiveSheet()->SetCellValue('F1', 'Kota/Kabupaten');
+        $objPHPExcel->getActiveSheet()->SetCellValue('G1', 'Total Suara');
         date_default_timezone_set('Asia/Jakarta');
         $no = 1;
         $rowCount = 2;
 
-        $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, $no);
-        $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $rowCount);
+        $partai = $this->suara_model->reportKelurahan();
 
-        $partai = $this->suara_model->reportKelurahanListing();
+        foreach ($partai as $key => $value) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A' . $rowCount, $no);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, $value->nama_caleg);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $value->partai);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D' . $rowCount, $value->kelurahan);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, $value->kecamatan);
+            $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount, $value->kota_kabupaten);
+            $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount, $value->total_suara_kelurahan);
 
-        $filename = "Report.csv";
+            $no++;
+            $rowCount++;
+        }
+
+
+        $filename = "Report Kelurahan.csv";
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'CSV');
+        $objWriter->save('php://output');
+    }
+
+    function kecamatan(){
+        $objPHPExcel = new PHPExcel();
+        $objPHPExcel->setActiveSheetIndex(0);
+        // set Header
+        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'No');
+        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Nama Caleg');
+        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Partai');
+        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Kecamatan');
+        $objPHPExcel->getActiveSheet()->SetCellValue('F1', 'Kota/Kabupaten');
+        $objPHPExcel->getActiveSheet()->SetCellValue('G1', 'Total Suara');
+        date_default_timezone_set('Asia/Jakarta');
+        $no = 1;
+        $rowCount = 2;
+
+        $partai = $this->suara_model->reportKecamatan();
+
+        foreach ($partai as $key => $value) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A' . $rowCount, $no);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, $value->nama_caleg);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $value->partai);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, $value->kecamatan);
+            $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount, $value->kota_kabupaten);
+            $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount, $value->total_suara_kecamatan);
+
+            $no++;
+            $rowCount++;
+        }
+
+
+        $filename = "Report Kelurahan.csv";
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
         header('Cache-Control: max-age=0');
@@ -93,18 +147,61 @@ class PrintExcel extends BaseController
         $objPHPExcel = new PHPExcel();
         $objPHPExcel->setActiveSheetIndex(0);
         // set Header
-        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Partai');
-        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Caleg');
-        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Kabupaten');
-        $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'Suara (akumulasi dari all TPS per kelurahan');
+        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'No');
+        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Nama Caleg');
+        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Partai');
+        $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'Kota/Kabupaten');
+        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Total Suara');
         date_default_timezone_set('Asia/Jakarta');
         $no = 1;
         $rowCount = 2;
 
-        $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, $no);
-        $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $rowCount);
+        $partai = $this->suara_model->reportKota();
 
-        $filename = "Report.csv";
+        foreach ($partai as $key => $value) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A' . $rowCount, $no);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, $value->nama_caleg);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $value->partai);
+            $objPHPExcel->getActiveSheet()->SetCellValue('D' . $rowCount, $value->kota_kabupaten);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, $value->total_suara_kota);
+
+            $no++;
+            $rowCount++;
+        }
+
+        $filename = "Report Kota.csv";
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'CSV');
+        $objWriter->save('php://output');
+    }
+
+    function jateng(){
+        $objPHPExcel = new PHPExcel();
+        $objPHPExcel->setActiveSheetIndex(0);
+        // set Header
+        $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'No');
+        $objPHPExcel->getActiveSheet()->SetCellValue('B1', 'Nama Caleg');
+        $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Partai');
+        $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'Total Suara');
+        date_default_timezone_set('Asia/Jakarta');
+        $no = 1;
+        $rowCount = 2;
+
+        $partai = $this->suara_model->reportKota();
+
+        foreach ($partai as $key => $value) {
+            $objPHPExcel->getActiveSheet()->SetCellValue('A' . $rowCount, $no);
+            $objPHPExcel->getActiveSheet()->SetCellValue('B' . $rowCount, $value->nama_caleg);
+            $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, $value->partai);
+            $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, $value->total_suara_jateng_X);
+
+            $no++;
+            $rowCount++;
+        }
+
+        $filename = "Report Jateng.csv";
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
         header('Cache-Control: max-age=0');
@@ -136,7 +233,7 @@ class PrintExcel extends BaseController
             $rowCount++;
         }
 
-        $filename = "Report.csv";
+        $filename = "Report Total.csv";
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
         header('Cache-Control: max-age=0');

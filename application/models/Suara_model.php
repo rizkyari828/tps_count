@@ -452,4 +452,54 @@ class Suara_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+
+    function statusTps()
+    {
+        $this->db->select('*');
+        $this->db->from('status_tps');
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
+
+    function reportKota()
+    {
+        $this->db->select('*');
+        $this->db->from('total_suara_kota');
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
+
+    function reportKecamatan()
+    {
+        $this->db->select('*');
+        $this->db->from('total_suara_kecamatan');
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
+
+    function reportKelurahan()
+    {
+        $this->db->select('*');
+        $this->db->from('total_suara_kelurahan');
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
+
+    function reportJateng()
+    {
+        $this->db->select('*');
+        $this->db->from('total_suara_jateng_X');
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
 }

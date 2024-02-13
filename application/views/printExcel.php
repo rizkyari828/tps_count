@@ -23,9 +23,11 @@
                         <div class="box-body">
                             <div class="row">
                                     <div class="box-footer">
-                                        <input type="submit" name="type" class="btn btn-primary" value="Export using Kota" />&nbsp;&nbsp;
-                                        <input type="submit" name="type" class="btn btn-warning" value="Export using Kelurahan" />&nbsp;&nbsp;
-                                        <input type="submit" name="type" class="btn btn-default" value="Export using Total" />
+                                        <input type="submit" name="type" class="btn btn-primary" value="Export Kota" />&nbsp;&nbsp;
+                                        <input type="submit" name="type" class="btn btn-warning" value="Export Kelurahan" />&nbsp;&nbsp;
+                                        <input type="submit" name="type" class="btn btn-info" value="Export Kabupaten/Kota" />&nbsp;&nbsp;
+                                        <input type="submit" name="type" class="btn btn-danger" value="Export Jateng" />&nbsp;&nbsp;
+                                        <input type="submit" name="type" class="btn btn-default" value="Export Total" />
                                     </div>
                                 </div>
                             </div>
