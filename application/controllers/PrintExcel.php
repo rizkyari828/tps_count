@@ -189,7 +189,7 @@ class PrintExcel extends BaseController
         $no = 1;
         $rowCount = 2;
 
-        $partai = $this->suara_model->reportKota();
+        $partai = $this->suara_model->reportJateng();
 
         foreach ($partai as $key => $value) {
             $objPHPExcel->getActiveSheet()->SetCellValue('A' . $rowCount, $no);
