@@ -45,8 +45,8 @@ class User extends BaseController
         // echo '<pre>';
         // print_r($data['allCaleg']);
         // echo '</pre>'; die;
-        // $data['getStLeague'] = $this->suara_model->getStLeague();
-        // $data['pemenangKursi'] = $this->suara_model->getPemenangKursi();
+        $data['getStLeague'] = $this->suara_model->getStLeague();
+        $data['pemenangKursi'] = $this->suara_model->getPemenangKursi();
         $data['getStLeague'] = null;
         $data['pemenangKursi'] = null;
         $data['m_caleg'] = $data['caleg'];
