@@ -75,7 +75,7 @@ class Suara_model extends CI_Model
 
     function allPartaiListing()
     {
-        $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total');
+        $this->db->select('c.*, SUM(u.total_suara) as total');
         $this->db->from('tbl_caleg as c');
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         $this->db->order_by('total', 'desc');
@@ -89,7 +89,7 @@ class Suara_model extends CI_Model
     function dashboardCalegListing($status = 0)
     {
         $partai = ['Partai Kebangkitan Bangsa', 'Partai Demokrasi Indonesia Perjuangan', 'Partai Golongan Karya'];
-        $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total');
+        $this->db->select('c.*, SUM(u.total_suara) as total');
         $this->db->from('tbl_caleg as c');
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         if($status == 0){
@@ -115,7 +115,7 @@ class Suara_model extends CI_Model
     function dashboardPartaiListing($status = 0)
     {
         $partai = ['Partai Kebangkitan Bangsa', 'Partai Demokrasi Indonesia Perjuangan', 'Partai Golongan Karya'];
-        $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total');
+        $this->db->select('c.*, SUM(u.total_suara) as total');
         $this->db->from('tbl_caleg as c');
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         if($status == 0){
@@ -140,7 +140,7 @@ class Suara_model extends CI_Model
 
     function perolehanKursiListing()
     {
-        $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total');
+        $this->db->select('c.*, SUM(u.total_suara) as total');
         $this->db->from('tbl_caleg as c');
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         $this->db->order_by('total', 'desc');
@@ -153,7 +153,7 @@ class Suara_model extends CI_Model
 
     function dashboardSaintLeague()
     {
-        $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total');
+        $this->db->select('c.*, SUM(u.total_suara) as total');
         $this->db->from('tbl_caleg as c');
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         $this->db->order_by('total', 'desc');
@@ -412,7 +412,7 @@ class Suara_model extends CI_Model
 
     function reportKelurahanListing()
     {
-        $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total, p.id_kelurahan, kl.name as nama_kelurahan, kc.name as nama_kecamatan, k.name as nama_kabupaten');
+        $this->db->select('c.*, SUM(u.total_suara) as total, p.id_kelurahan, kl.name as nama_kelurahan, kc.name as nama_kecamatan, k.name as nama_kabupaten');
         $this->db->from('tbl_caleg as c');
         $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
         $this->db->join('tbl_tps as p', 'u.id_tps = p.id', 'left');
