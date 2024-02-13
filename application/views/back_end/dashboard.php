@@ -51,7 +51,7 @@
                           $countVar = $value3->total;
                         }
                       } ?>
-                      <div class="progress-bar-danger" role="progressbar" style="width: <?php echo ($value2->total*100/$countVar)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?php echo $value2->total; ?></div></div>
+                      <div class="progress-bar-danger" role="progressbar" style="width: <?php echo $countVar == 0 ? 0 : ($value2->total*100/$countVar)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?php echo $value2->total; ?></div></div>
                       </div>
                       <!-- <h3><?php echo $value2->total; ?>/<?= $countVar ?></h3> -->
                     </div>
@@ -71,7 +71,7 @@
                           $countVar = $value3->total;
                         }
                       } ?>
-                      <div class="progress-bar-danger" role="progressbar" style="width: <?php echo ($value1->total*100/$countVar)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?php echo $value1->total; ?></div></div>
+                      <div class="progress-bar-danger" role="progressbar" style="width: <?php echo $countVar == 0 ? 0 : ($value1->total*100/$countVar)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?php echo $value1->total; ?></div></div>
                       </div>
                     </div>
               
