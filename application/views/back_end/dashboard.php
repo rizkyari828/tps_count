@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-10" style="padding-top: 5px;">
                       <div class="progress">
-                        <div class="progress-bar-danger" role="progressbar" style="width: <?php echo ($value->total*array_shift($caleg)->total/100)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?= $value->total ?></div></div>
+                        <div class="progress-bar-danger" role="progressbar" style="width: <?php echo ($value->total/array_shift($caleg)->total*100)?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="text-center text-bold"><?= $value->total ?></div></div>
                       </div>
                     </div>
                   </div>
