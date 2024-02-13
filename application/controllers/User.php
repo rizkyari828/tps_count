@@ -35,7 +35,11 @@ class User extends BaseController
         $this->global['pageTitle'] = 'Quick Count Jateng : Dashboard';
 		
 		$data['searchBody'] = 'Yes';
+        
+        $data['allPartaiIn'] = $this->suara_model->dashboardPartaiListing(1);
+        $data['allPartaiOut'] = $this->suara_model->dashboardPartaiListing(0);
         $data['caleg'] = $this->suara_model->allPartaiListing();
+        $data['caleg1'] = $this->suara_model->allPartaiListing();
         $data['allCaleg'] = $this->suara_model->dashboardCalegListing(2);
         $data['allCalegNot'] = $this->suara_model->dashboardCalegListing(1);
         // echo '<pre>';

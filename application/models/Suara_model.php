@@ -112,6 +112,32 @@ class Suara_model extends CI_Model
         return $result;
     }
 
+    function dashboardPartaiListing($status = 0)
+    {
+        $partai = ['Partai Kebangkitan Bangsa', 'Partai Demokrasi Indonesia Perjuangan', 'Partai Golongan Karya'];
+        $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total');
+        $this->db->from('tbl_caleg as c');
+        $this->db->join('tbl_input_data as u', 'c.id = u.id_caleg', 'left');
+        if($status == 0){
+            $this->db->where_not_in('partai', $partai);
+        }else if($status == 1){
+            $this->db->where_in('partai', $partai);
+        }
+        if($status == 2){
+            $this->db->order_by('total', 'desc');
+        }else{
+            $this->db->order_by('c.no_urut_partai', 'asc');
+            $this->db->order_by('c.no_urut', 'asc');
+        }
+
+        $this->db->group_by('c.partai');
+
+        $query = $this->db->get();
+        
+        $result = $query->result();
+        return $result;
+    }
+
     function perolehanKursiListing()
     {
         $this->db->select('c.*, SUM(DISTINCT u.total_suara) as total');
