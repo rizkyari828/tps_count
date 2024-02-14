@@ -47,6 +47,9 @@
                             </div>
                             <?php foreach ($caleg as $key => $value) { ?>
                             <div class="row">
+                                <div class="col-md-1">
+                                    <img style="border-radius: 50%;" height="35" width="35" src="<?php echo base_url() ?>assets/partai/<?= $value->image_partai ?>" alt="Page Not Found Image" />
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <h6><?= $value->partai?></h6>
@@ -59,6 +62,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
+                                        
 										<input type="number" class="form-control" placeholder="12345" name="total[]" maxlength="100" value="<?php echo $tps->status_submit == 0 ? 0 : $value->total_suara?>" <?= $status_submit == 0 ? '' : 'disabled'?>/>
                                         <input type="hidden" class="form-control" placeholder="12345" name="id_caleg[]" value="<?=$value->id?>">
                                         <input type="hidden" class="form-control" name="id_input[]" value="<?=$tps->status_submit == 0 ? '' : $value->id_input?>">

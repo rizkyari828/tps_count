@@ -33,15 +33,15 @@ class PrintExcel extends BaseController
         }
         else
         {
-            $tpsId = 1;
-            $this->load->model('suara_model');
+            // $tpsId = 1;
+            // $this->load->model('suara_model');
 			$data = "";
-            $this->global['tps'] = $this->suara_model->selectTps($tpsId);
-            $this->global['caleg'] = $this->suara_model->calegListing($tpsId, $this->global['tps']->status_submit);
-            $this->global['partai'] = $this->suara_model->partaiListing($tpsId, $this->global['tps']->status_submit);
-            $this->global['result_suara'] = $this->suara_model->resultSuara($tpsId);
+            // $this->global['tps'] = $this->suara_model->selectTps($tpsId);
+            // $this->global['caleg'] = $this->suara_model->calegListing($tpsId, $this->global['tps']->status_submit);
+            // $this->global['partai'] = $this->suara_model->partaiListing($tpsId, $this->global['tps']->status_submit);
+            // $this->global['result_suara'] = $this->suara_model->resultSuara($tpsId);
 
-            $this->global['tpsId'] = $tpsId;
+            // $this->global['tpsId'] = $tpsId;
 			
             $this->global['pageTitle'] = 'Quick Count Jateng : Add New Vehicle';
 
