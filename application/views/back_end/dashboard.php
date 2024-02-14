@@ -64,12 +64,11 @@
         </div>
       </div>
     
-          <div class="box box-danger"  style="padding: 20px;">
+          <!-- <div class="box box-danger"  style="padding: 20px;">
             <div class="card">
               <div class="card-body">
               <?php $total = array_shift($caleg)->total?>
               <?php foreach ($allPartaiIn as $key => $value23) { ?>
-                <!-- /.card-header -->
                   <div class="row" style="padding: 5px;">
                     <div class="col-md-1">
                       <img style="border-radius: 50%;" height="35" width="35" src="<?php echo base_url() ?>assets/partai/<?= $value23->image_partai ?>" alt="Page Not Found Image" />
@@ -82,7 +81,6 @@
                   </div>
                 <?php }?>
                 <?php foreach ($allPartaiOut as $key => $value33) {?>
-                <!-- /.card-header -->
                   <div class="row" style="padding: 5px;">
                     <div class="col-md-1">
                       <img style="border-radius: 50%;" height="35" width="35" src="<?php echo base_url() ?>assets/partai/<?= $value33->image_partai ?>" alt="Page Not Found Image" />
@@ -96,7 +94,7 @@
                 <?php }?>
                 </div>
               </div>
-            </div>
+            </div> -->
         
 
           <div class="box box-danger"  style="padding: 20px;">

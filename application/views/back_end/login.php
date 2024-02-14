@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,10 +20,13 @@
   </head>
   <body class="hold-transition login-page">
     <div class="login-box">
+      
       <div class="login-logo">
         <a href="<?php echo base_url(); ?>"><b>Quick Count Jateng</b><br>CRM Control Panel</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
+      <center><img style="border-radius: 10%;" height="150" width="200" src="<?php echo base_url() ?>assets/partai/pdip_logo.jpeg" alt="Page Not Found Image" /></center>
+      <br>
         <p class="login-box-msg"><strong>Sign In</strong></p>
         <?php $this->load->helper('form'); ?>
         <div class="row">
