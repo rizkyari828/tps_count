@@ -64,7 +64,7 @@
         </div>
       </div>
     
-          <div class="box box-danger"  style="padding: 20px;">
+          <!-- <div class="box box-danger"  style="padding: 20px;">
             <div class="card">
               <div class="card-body">
               <?php $total = array_shift($caleg)->total?>
@@ -94,7 +94,7 @@
                 <?php }?>
                 </div>
               </div>
-            </div>
+            </div> -->
         
 
           <div class="box box-danger"  style="padding: 20px;">
