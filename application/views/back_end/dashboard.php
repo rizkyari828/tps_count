@@ -64,7 +64,7 @@
         </div>
       </div>
     
-          <!-- <div class="box box-danger"  style="padding: 20px;">
+          <div class="box box-danger"  style="padding: 20px;">
             <div class="card">
               <div class="card-body">
               <?php $total = array_shift($caleg)->total?>
@@ -94,12 +94,14 @@
                 <?php }?>
                 </div>
               </div>
-            </div> -->
+            </div>
         
 
           <div class="box box-danger"  style="padding: 20px;">
 				<div class="card">
-            
+        <div class="card-header">
+            <h3 class="text-bold">Perolehan Suara CALEG DPR RI dapil JATENG X</h3><hr>
+            </div>
             <!-- /.card-header -->
             <div class="card-body">
             <?php foreach ($allCalegNot as $key => $value2) { ?>
@@ -148,7 +150,9 @@
 
           <div class="box box-danger"  style="padding: 20px;">
 				<div class="card">
-            
+            <div class="card-header">
+            <h3 class="text-bold">SAINTE LAGUE</h3><hr>
+            </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -175,7 +179,6 @@
                 </tr>
                 </thead>
                 <tbody>
-				
 				      <?php
                     if(!empty($getStLeague))
                     { $i=1;
@@ -187,13 +190,13 @@
                   <td><?php echo $i;?>.</td>
                   <td><?php echo $record->partai; ?></td>
                   <td><?php echo $record->est; ?></td>
-                  <td><?php echo $record->kursi_1; ?></td>
-                  <td><?php echo $record->kursi_2; ?></td>
-                  <td><?php echo $record->kursi_3; ?></td>
-                  <td><?php echo $record->kursi_4; ?></td>
-                  <td><?php echo $record->kursi_5; ?></td>
-                  <td><?php echo $record->kursi_6; ?></td>
-                  <td><?php echo $record->kursi_7; ?></td>
+                  <td <?php echo $record->peringkat_kursi_1 == 1 ? 'style="background-color: #fc7777;"' : ""?>><?php echo $record->kursi_1; ?></td>
+                  <td <?php echo $record->peringkat_kursi_2 == 1 ? 'style="background-color: #fc7777;"' : ""?>><?php echo $record->kursi_2; ?></td>
+                  <td <?php echo $record->peringkat_kursi_3 == 1 ? 'style="background-color: #fc7777;"' : ""?>><?php echo $record->kursi_3; ?></td>
+                  <td <?php echo $record->peringkat_kursi_4 == 1 ? 'style="background-color: #fc7777;"' : ""?>><?php echo $record->kursi_4; ?></td>
+                  <td <?php echo $record->peringkat_kursi_5 == 1 ? 'style="background-color: #fc7777;"' : ""?>><?php echo $record->kursi_5; ?></td>
+                  <td <?php echo $record->peringkat_kursi_6 == 1 ? 'style="background-color: #fc7777;"' : ""?>><?php echo $record->kursi_6; ?></td>
+                  <td <?php echo $record->peringkat_kursi_7 == 1 ? 'style="background-color: #fc7777;"' : ""?>><?php echo $record->kursi_7; ?></td>
                 </tr>
 				<?php
                         $i++; }
@@ -209,13 +212,16 @@
 
           <div class="box box-danger"  style="padding: 20px;">
 				<div class="card">
-          
+          <div class="card-header">
+            <h3 class="text-bold">Perolehan Kursi DPR RI DAPIL JATENG X</h3><hr>
+            </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No</th>
+                  <th></th>
                   <th>Nama Caleg</th>
                   <!-- <th>Saint League</th> -->
                   <th>Pemenang Kursi</th>
@@ -232,6 +238,7 @@
 					
                 <tr>
                   <td><?php echo $i;?>.</td>
+                  <td> <img style="border-radius: 50%;" height="35" width="35" src="<?php echo base_url() ?>assets/partai/<?= $record->image_partai ?>" alt="Page Not Found Image" />></td>
                   <td><?php echo $record->nama_caleg; ?></td>
                   <!-- <td><?php echo $record->total; ?></td> -->
                   <td><?php echo $record->pemenang_kursi; ?></td>
